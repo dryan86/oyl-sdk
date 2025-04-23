@@ -1,12 +1,12 @@
 import { Provider } from '../provider/provider'
-import * as dotenv from 'dotenv'
+// import * as dotenv from 'dotenv'
 import * as bitcoin from 'bitcoinjs-lib'
 import { EsploraUtxo, addressUtxos, selectUtxos, accountUtxos } from './utxo'
 import { FormattedUtxo } from '../shared/interface'
 import { accountUtxos as accountUtxosFixture } from '../__fixtures__/utxos'
 import { Account } from '../account/account'
 
-dotenv.config()
+// dotenv.config()
 
 const provider = new Provider({
   url: 'https://mainnet.sandshrew.io',

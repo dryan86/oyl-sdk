@@ -1,8 +1,8 @@
 import { networks } from 'bitcoinjs-lib'
 import { Provider } from '.'
-import * as dotenv from 'dotenv'
+// import * as dotenv from 'dotenv'
 
-dotenv.config()
+// dotenv.config()
 
 describe('Provider', () => {
   it('should instantiate a new provider with the specified api url', () => {

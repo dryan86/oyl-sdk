@@ -1,7 +1,7 @@
 import { MnemonicToAccountOptions } from '..'
 import * as bitcoin from 'bitcoinjs-lib'
-import * as dotenv from 'dotenv'
-dotenv.config()
+// import * as dotenv from 'dotenv'
+// dotenv.config()
 
 export const UTXO_DUST = 546
 
