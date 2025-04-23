@@ -2,7 +2,9 @@ import * as bitcoin from 'bitcoinjs-lib'
 import { ECPair, tweakSigner } from '../shared/utils'
 import { ECPairInterface } from 'ecpair'
 import { Signer as bipSigner } from 'bip322-js'
-import crypto from 'crypto'
+import { sha256 } from "@noble/hashes/sha2"
+import * as base64 from "base64-js"
+// import crypto from 'crypto'
 
 export type walletInit = {
   segwitPrivateKey?: string
@@ -312,11 +314,14 @@ export class Signer {
         .toString('base64')
     }
     if (protocol === 'ecdsa') {
-      const hashedMessage = crypto
-        .createHash('sha256')
-        .update(message)
-        .digest()
-        .toString('base64')
+      // const hashedMessage = crypto
+      //   .createHash('sha256')
+      //   .update(message)
+      //   .digest()
+      //   .toString('base64')
+
+      const hashedMessageSha256 = sha256(message);
+      const hashedMessage = base64.fromByteArray(hashedMessageSha256);
       const signature = keypair.sign(Buffer.from(hashedMessage, 'base64'))
       return signature.toString('base64')
     }
